@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wanderlust Adventures - Explore the World</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            line-height: 1.6;
+            color: #4f4f4f;
+        }
+
+        header {
+            background-color: #530c32; 
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 3.5rem; 
+            font-weight: bold;
+            margin-bottom: 10px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        header p {
+            font-size: 1.5rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #6a4c93; 
+            background-color: #e8e8f2; 
+        }
+
+        .adventure {
+            background-color: rgba(156, 47, 43, 0.736); 
+            color: white;
+            text-align: center;
+            padding: 50px;
+            width: 100%;
+        }
+
+        .adventure img {
+            width: 100%;
+            max-height: 500px;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+
+        .adventure h1 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+
+        .adventure p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .adventure button {
+            background-color: #530c32; 
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 30px;
+            transition: background-color 0.3s ease;
+        }
+
+        .adventure button:hover {
+            background-color: #6f1143; 
+        }
+
+        .features {
+            display: flex;
+            justify-content: space-around;
+            padding: 60px 20px;
+            background-color: #fff;
+        }
+
+        .feature {
+            text-align: center;
+            width: 30%;
+            padding: 20px;
+            background-color: #f1f1f1;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature img {
+            width: 300px;
+            height: 300px;
+            margin-bottom: 15px;
+            border-radius: 50%;
+        }
+
+        .feature h2 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .feature p {
+            font-size: 1.1rem;
+            color: #666;
+        }
+
+        .destinations {
+             background-color: #fff;
+             padding: 60px 20px;
+             text-align: center;
+        }
+        .destinations h2 {
+             font-size: 2.2rem;
+             margin-bottom: 40px;
+        }
+
+        .destination {
+            display: inline-block;
+            width: 30%;
+            padding: 20px;
+            margin: 10px;
+            background-color: #f4f4f9;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .destination img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .destination h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+           color: #333;
+        }
+
+        .destination p {
+            font-size: 1.1rem;
+            color: #666;
+        }
+        
+        .testimonials {
+            background-color: #ecf0f1;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .testimonial {
+            display: inline-block;
+            width: 30%;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 0 15px;
+            font-style: italic;
+        }
+
+        .testimonial img {
+            width: 150px;
+            height: 150px;
+            margin-bottom: 15px;
+            border-radius: 50%;
+        }
+
+        .testimonial p {
+            font-size: 1.1rem;
+            color: #333;
+        }
+
+        .testimonial h3 {
+            margin-top: 15px;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .cta {
+            background-color:#530c32;
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .cta h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .cta p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .cta button {
+            background-color: #5eaf75; 
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            border-radius: 30px;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta button:hover {
+            background-color: #366844;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            background-color: #34495e; 
+            color: white;
+        }
+
+        footer p {
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>Adventures Quest</h1>
+            <p>Explore the World, Live Your Dreams</p>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Destinations</a></li>
+                    <li><a href="#">Guides</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="adventure">
+        <img src="https://images.unsplash.com/photo-1501555088652-021faa106b9b?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8YWR2ZW50dXJlfGVufDB8fDB8fHww" alt="Travel Image">
+        <h1>Embark on Your Next Adventure</h1>
+        <p>Join us to explore the world's most exotic destinations.</p>
+        <button>Start Your Journey</button>
+    </section>
+
+    <section class="features">
+        <div class="feature">
+            <img src="https://bizimages.withfloats.com/tile/66977c093e238421aa4c845c.jpg" alt="Feature 1">
+            <h2>Exclusive Packages</h2>
+            <p>Choose from our exclusive travel packages to make your trip unforgettable.</p>
+        </div>
+        <div class="feature">
+            <img src="https://assets.isu.pub/document-structure/230919102333-caaeac46c0b593c8efa173b8875f237c/v1/8e242324241af8669c8dcd802df1116b.jpeg" alt="Feature 2">
+            <h2>Expert Travel Tips</h2>
+            <p>Get the best advice from travel experts who know the best spots around the globe.</p>
+        </div>
+        <div class="feature">
+            <img src="https://2baecation.com/cdn/shop/files/024F1AC8-3D91-4E95-B29C-007C6D6FB890.png?v=1684370854" alt="Feature 3">
+            <h2>Custom Itineraries</h2>
+            <p>We offer custom itineraries tailored to your travel preferences and interests.</p>
+        </div>
+    </section>
+
+    <section class="destinations">
+        <h2>Popular Destinations</h2>
+        <div class="destination">
+            <img src="https://indonesia.travel/content/dam/indtravelrevamp/en/news-events/news/bali-crowned-world-s-best-destination-2017-by-t/72931d8e6506fe6b2627f855fce6ed39a5443d52-3bdd5.2a8d2.dela" alt="Destination 1">
+            <h3>Bali, Indonesia</h3>
+            <p>Known for its beautiful beaches and vibrant culture, Bali is an ideal destination for relaxation and adventure.</p>
+        </div>
+        <div class="destination">
+            <img src="https://p4.wallpaperbetter.com/wallpaper/132/818/377/eiffel-tower-cityscape-city-landmark-wallpaper-preview.jpg" alt="Destination 2">
+            <h3>Paris, France</h3>
+            <p>Famous for its art, culture, and cuisine, Paris is a city that promises romance and adventure in equal measure.</p>
+        </div>
+        <div class="destination">
+            <img src="https://globalpayrollassociation.com/cdn/shop/articles/bigstock-Tokyo-Japan-Cityscape-Image--282619732_1200x.jpg?v=1592380417" alt="Destination 3">
+            <h3>Tokyo, Japan</h3>
+            <p>Tokyo offers a unique blend of traditional temples and modern skyscrapers, making it a dynamic destination for travelers.</p>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <h2>What Our Adventurers Say</h2>
+        <div class="testimonial">
+            <img src="https://plus.unsplash.com/premium_photo-1690407617542-2f210cf20d7e?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cGVvcGxlJTIwcG9ydHJhaXR8ZW58MHx8MHx8fDA%3D" alt="Client 1">
+            <p>"Adventures Quest made my trip to Europe so seamless and memorable. Highly recommend!"</p>
+            <h3>Emma Johnson</h3>
+        </div>
+        <div class="testimonial">
+            <img src="https://img.freepik.com/free-photo/young-bearded-man-with-white-t-shirt_273609-7187.jpg?semt=ais_hybrid" alt="Client 2">
+            <p>"The personalized travel guides helped me make the most out of every destination I visited."</p>
+            <h3>Lucas Brown</h3>
+        </div>
+        <div class="testimonial">
+            <img src="https://st3.depositphotos.com/3917667/18795/i/450/depositphotos_187959886-stock-photo-woman-smiling-with-perfect-smile.jpg" alt="Client 3">
+            <p>"Every detail was taken care of, from flights to activities. A truly unforgettable experience."</p>
+            <h3>Amy Davis</h3>
+        </div>
+    </section>
+
+    <section class="cta">
+        <h2>Ready for Your Next Great Adventure?</h2>
+        <p>Explore the world with us and create memories that last a lifetime!</p>
+        <button>Book Your Trip Now</button>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Adventures Quest. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

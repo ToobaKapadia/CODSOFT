@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Basic Calculator</title>
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(135deg, #1e293b, #64748b);
+      margin: 0;
+    }
+
+    .calculator {
+      width: 320px;
+      background: #f9fafb;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      padding: 20px;
+    }
+
+    .display {
+      height: 80px;
+      background: #111827;
+      color: #38bdf8;
+      font-size: 2.5rem;
+      text-align: right;
+      padding: 20px;
+      border-radius: 15px;
+      margin-bottom: 20px;
+      box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+
+    .btn {
+      height: 60px;
+      font-size: 1.4rem;
+      border: none;
+      border-radius: 15px;
+      background: #e2e8f0;
+      color: #1e293b;
+      cursor: pointer;
+      transition: 0.3s ease-in-out;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn:hover {
+      background: #cbd5e1;
+      box-shadow: 0 7px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .btn:active {
+      background: #94a3b8;
+      box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    .btn.special {
+      background: #f87171;
+      color: #ffffff;
+    }
+
+    .btn.special:hover {
+      background: #ef4444;
+    }
+
+    .btn.special:active {
+      background: #dc2626;
+    }
+
+    .btn.equals {
+      background: #10b981;
+      color: #ffffff;
+      font-weight: bold;
+    }
+
+    .btn.equals:hover {
+      background: #059669;
+    }
+
+    .btn.equals:active {
+      background: #047857;
+    }
+  </style>
+</head>
+<body>
+  <div class="calculator">
+    <div class="display" id="display">0</div>
+    <div class="buttons">
+      <button class="btn" onclick="appendNumber('7')">7</button>
+      <button class="btn" onclick="appendNumber('8')">8</button>
+      <button class="btn" onclick="appendNumber('9')">9</button>
+      <button class="btn special" onclick="appendOperator('/')">/</button>
+      <button class="btn" onclick="appendNumber('4')">4</button>
+      <button class="btn" onclick="appendNumber('5')">5</button>
+      <button class="btn" onclick="appendNumber('6')">6</button>
+      <button class="btn special" onclick="appendOperator('*')">×</button>
+      <button class="btn" onclick="appendNumber('1')">1</button>
+      <button class="btn" onclick="appendNumber('2')">2</button>
+      <button class="btn" onclick="appendNumber('3')">3</button>
+      <button class="btn special" onclick="appendOperator('-')">−</button>
+      <button class="btn" onclick="appendNumber('0')">0</button>
+      <button class="btn special" onclick="clearDisplay()">C</button>
+      <button class="btn equals" onclick="calculate()">=</button>
+      <button class="btn special" onclick="appendOperator('+')">+</button>
+    </div>
+  </div>
+  <script>
+    let display = document.getElementById('display');
+    let currentInput = '';
+
+    function appendNumber(number) {
+      if (currentInput === '0') currentInput = '';
+      currentInput += number;
+      display.innerText = currentInput;
+    }
+
+    function appendOperator(operator) {
+      if (currentInput !== '' && !isNaN(currentInput.slice(-1))) {
+        currentInput += operator;
+        display.innerText = currentInput;
+      }
+    }
+
+    function clearDisplay() {
+      currentInput = '';
+      display.innerText = '0';
+    }
+
+    function calculate() {
+      try {
+        currentInput = eval(currentInput).toString();
+        display.innerText = currentInput;
+      } catch {
+        display.innerText = 'Error';
+        currentInput = '';
+      }
+    }
+  </script>
+</body>
+</html>

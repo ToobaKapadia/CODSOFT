@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Name - Portfolio</title>
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      line-height: 1.6;
+      background-color: #f4f4f4;
+      color: #333;
+      margin: 0;
+    }
+
+    nav {
+      background-color: #222;
+      color: white;
+      padding: 15px 0;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+    }
+
+    nav ul li {
+      margin: 0 20px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: white;
+      font-size: 1.1em;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #ff6347;
+    }
+
+    header {
+      background: linear-gradient(to right, #0066cc, #003366);
+      color: white;
+      text-align: center;
+      padding: 100px 0;
+    }
+
+    header h1 {
+      font-size: 4em;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.5em;
+      font-weight: 300;
+      margin-top: 20px;
+    }
+
+    #about {
+      padding: 80px 0;
+      background-color: #fff;
+    }
+
+    #about .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    #about img {
+        width: 200px; 
+        height: 250px;
+        border-radius: 50%; 
+        border: 5px solid #0066cc;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    #about .bio {
+      width: 60%;
+      padding: 20px;
+    }
+
+    #about h2 {
+      font-size: 2.5em;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    #about p {
+      font-size: 1.1em;
+      line-height: 1.8;
+      color: #666;
+    }
+
+    #skills {
+      padding: 80px 0;
+      background-color: #f4f4f4;
+    }
+
+    #skills .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    #skills h2 {
+      font-size: 2.5em;
+      margin-bottom: 40px;
+      color: #333;
+    }
+
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .skill {
+      width: 30%;
+      margin: 15px;
+      text-align: left;
+      padding: 10px;
+    }
+
+    .skill h3 {
+      font-size: 1.5em;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .progress-bar {
+      background-color: #e0e0e0;
+      border-radius: 5px;
+      width: 100%;
+      height: 20px;
+    }
+
+    .progress {
+      height: 100%;
+      border-radius: 5px;
+    }
+
+    .html {
+      width: 90%;
+      background-color: #ff6347;
+    }
+
+    .css {
+      width: 80%;
+      background-color: #0066cc;
+    }
+
+    .javascript {
+      width: 75%;
+      background-color: #f0db4f;
+    }
+
+    .react {
+      width: 70%;
+      background-color: #61dafb;
+    }
+
+    .node {
+      width: 65%;
+      background-color: #8cc84b;
+    }
+
+    .git {
+      width: 85%;
+      background-color: #f1502f;
+    }
+
+    .skill h3, .progress-bar {
+      margin-bottom: 15px;
+    }
+
+    #projects {
+      padding: 80px 0;
+      background-color: #fff;
+    }
+
+    #projects .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    #projects h2 {
+      font-size: 2.5em;
+      margin-bottom: 40px;
+      color: #333;
+    }
+
+    .project {
+        display: inline-block;
+        width: 30%;
+        padding: 20px;
+        margin: 10px;
+        background-color: #f4f4f9;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+    .project img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 8px;
+        margin-bottom: 15px;
+    }
+
+    .project:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .project h3 {
+      font-size: 1.8em;
+      color: #333;
+      margin-bottom: 15px;
+    }
+
+    .project p {
+      font-size: 1.1em;
+      color: #666;
+    }
+
+    #resume {
+      padding: 80px 0;
+      background-color: #f4f4f4;
+      text-align: center;
+    }
+
+    #resume a {
+      color: #0066cc;
+      font-size: 1.5em;
+      font-weight: bold;
+      text-decoration: none;
+      border: 2px solid #0066cc;
+      padding: 10px 30px;
+      border-radius: 30px;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    #resume a:hover {
+      background-color: #0066cc;
+      color: white;
+    }
+
+    #contact {
+      padding: 80px 0;
+      background-color: #fff;
+      text-align: center;
+    }
+
+    #contact h2 {
+      font-size: 2.5em;
+      color: #333;
+      margin-bottom: 40px;
+    }
+
+    #contact p {
+      font-size: 1.2em;
+      margin-bottom: 20px;
+    }
+
+    footer {
+      background-color: #222;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    footer p {
+      font-size: 1.2em;
+      margin-bottom: 20px;
+    }
+
+    footer a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.1em;
+      margin: 0 15px;
+    }
+
+    footer a:hover {
+      color: #ff6347;
+    }
+
+  </style>
+</head>
+<body>
+
+  <nav>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#resume">Resume</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header>
+    <div>
+      <h1>Tooba Kapadia</h1>
+      <p>Web Developer | Designer | Problem Solver</p>
+    </div>
+  </header>
+
+  <section id="about">
+    <div class="container">
+      <img src="C:\Users\HP\Downloads\0_IMG_4171.JPG" alt="Your photo">
+      <div class="bio">
+        <h2>About Me</h2>
+        <p>I'm a passionate web developer with a love for creating clean, efficient, and beautiful websites. I specialize in HTML, CSS, JavaScript, and front-end frameworks like React. My goal is to build responsive, user-friendly websites that provide great user experiences.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="container">
+      <h2>Skills</h2>
+      <div class="skills-list">
+        <div class="skill">
+          <h3>HTML</h3>
+          <div class="progress-bar">
+            <div class="progress html"></div>
+          </div>
+        </div>
+
+        <div class="skill">
+          <h3>CSS</h3>
+          <div class="progress-bar">
+            <div class="progress css"></div>
+          </div>
+        </div>
+
+        <div class="skill">
+          <h3>JavaScript</h3>
+          <div class="progress-bar">
+            <div class="progress javascript"></div>
+          </div>
+        </div>
+
+        <div class="skill">
+          <h3>React</h3>
+          <div class="progress-bar">
+            <div class="progress react"></div>
+          </div>
+        </div>
+
+        <div class="skill">
+          <h3>Node.js</h3>
+          <div class="progress-bar">
+            <div class="progress node"></div>
+          </div>
+        </div>
+
+        <div class="skill">
+          <h3>Git/GitHub</h3>
+          <div class="progress-bar">
+            <div class="progress git"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="container">
+      <h2>Projects</h2>
+      <div class="project">
+        <img src="C:\Users\HP\Pictures\Screenshots\Screenshot 2024-01-31 190033.png" alt="Project 1">
+        <h3>Plum Glow</h3>
+        <p>"Plum Glow offers natural, effective skincare products that enhance your skin's radiance and health."</p>
+      </div>
+      <div class="project">
+        <img src="C:\Users\HP\Pictures\Screenshots\Screenshot 2024-09-28 201907.png" alt="Project 2">
+        <h3>NutriGuide</h3>
+        <p>"NutriGuide is your personalized guide to healthier eating with tailored meal plans and nutritious recipes."</p>
+      </div>
+      <div class="project">
+        <img src="C:\Users\HP\Pictures\Screenshots\Screenshot 2024-11-29 205713.png" alt="Project 3">
+        <h3>Bistro Blissful</h3>
+        <p>"Bistro Blissful brings gourmet bistro meals to your door, delivering exceptional flavors and fresh ingredients."</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="resume">
+    <a href="C:\Users\HP\Desktop\Resume.pdf" download>Download My Resume (PDF)</a>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Email: tooba.kapadia15@gmail.com</p>
+    <p>Phone: 8657242552</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2024 Tooba Kapadia. All rights reserved.</p>
+    <a href="https://www.linkedin.com/in/yourprofile">LinkedIn</a> |
+    <a href="https://github.com/yourprofile">GitHub</a>
+  </footer>
+
+</body>
+</html>
